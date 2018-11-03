@@ -1,28 +1,26 @@
 const Discord = require('discord.js');
-const devs = ['485380710656507914','460903855824044038'];
-var prefix = "&";
-const adminprefix = "-"
-const fs = require("fs"); 
-const moment = require("moment");  
-
+const client = new Discord.Client();
 
 client.on('ready', () => {
-  console. log(`Logged in as ${client.user.tag}!`);
+  console.log(`Logged in as ${client.user.tag}!`);
 });
 
+client.on("message", message => {
 
-var prefix = "&";
-
-
-
-
-
-
-
-
+            if (message.content.startsWith(prefix + "bc")) {
+                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' '); 
+  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
+ m.send(`${argresult}\n ${m}`);
+})
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
+ message.delete(); 
+};     
+});
 
 client.on("message", message => {
-	var prefix = "&";
+	var prefix = "!";
 	var args = message.content.split(' ').slice(1); 
 	var msg = message.content.toLowerCase();
 	if( !message.guild ) return;
@@ -245,6 +243,5 @@ message.author.sendEmbed(embed)
 
 }
 });
- 
- 
+
 client.login(process.env.BOT_TOKEN);
