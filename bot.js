@@ -5,11 +5,7 @@ const adminprefix = "-"
 const fs = require("fs"); 
 const moment = require("moment");  
 
-client.on('ready', () => {
-  console.log('---------------');
-  console.log('Desert Bot Is Online')
-  console.log('---------------')
-});
+
 
 
 var prefix = "&";
