@@ -6,6 +6,9 @@ const fs = require("fs");
 const moment = require("moment");  
 
 
+client.on('ready', () => {
+  console. log(`Logged in as ${client.user.tag}!`);
+});
 
 
 var prefix = "&";
