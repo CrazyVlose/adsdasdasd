@@ -5,32 +5,48 @@ const adminprefix = "-"
 const fs = require("fs"); 
 const moment = require("moment");  
 
-
-
-var prefix = "&";
-
-
-
-client.on('message', message => {
-    if (message.author.id === client.user.id) return;
-if(!message.channel.guild) return
-   let embed = new Discord.RichEmbed()
-    let args = message.content.split(' ').slice(1).join(' ');
-if(message.content.startsWith( '&' + 'bc')) {
-        message.guild.members.forEach(member => {
-   if(!message.member.hasPermission('ADMINISTRATOR')) return;
-            member.send(`${member} ** ${args}** `);
-
-        });
-    }
-
-});
-
 client.on('ready', () => {
   console.log('---------------');
   console.log('Desert Bot Is Online')
   console.log('---------------')
 });
+
+
+var prefix = "&";
+
+
+Client.on('message', message => {
+if (message.content.split(' ')[0] == '&bc')
+ message.guild.members.forEach( member => {
+         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+member.send( `${member} ! ` + "**" + message.guild.name + " : ** " + message.content.substr(3));
+                                                            message.delete();
+});
+});
+Client.on("message", message => {
+    var prefix = "-";
+ 
+            var args = message.content.substring(prefix.length).split(" ");
+            if (message.content.startsWith(prefix - "bc")) {
+                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+ if (!args[1]) {
+                                let embed3 = new Discord.RichEmbed()
+                                .setDescription(":white_check_mark: | تم ارسال للكل رساله فارغه")
+                                .setColor("#FF0000")
+                                message.channel.sendEmbed(embed3);
+                            } else {
+
+                            let embed4 = new Discord.RichEmbed()
+                                                            .setDescription(':white_check_mark: | تم ارسال للكل الرساله !')
+                                                            .setColor("#008000")
+                                message.channel.sendEmbed(embed4);
+                                                      message.delete();
+                            }
+                          }
+});
+
+
+
 
 
 
