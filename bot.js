@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-
+const devs = ['485380710656507914','460903855824044038'];
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
