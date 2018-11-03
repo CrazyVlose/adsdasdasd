@@ -5,8 +5,7 @@ const adminprefix = "-"
 const fs = require("fs"); 
 const moment = require("moment");  
 
-,ti={}  
-,spee={};
+
 
 var prefix = "&";
 
