@@ -5,6 +5,7 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 var prefix = "&";
+var adminprefix = "-"
 
 client.on("message", message => {
 
