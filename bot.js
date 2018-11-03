@@ -46,6 +46,11 @@ client.on("message", message => {
  message.delete(); 
 };     
 });
+client.on('ready', () => {
+  console.log('---------------');
+  console.log('Desert Bot Is Online')
+  console.log('---------------')
+});
 
 
 
